@@ -1,10 +1,36 @@
 package com.binarysearchtree;
 
 public class BinarySearchTree<T extends Comparable<T>> {
+    static int size;
+
+    public class BinaryClassTree {
+        myBinaryNode root;
+
+        // Traverse tree
+        public void traverseTreeData(myBinaryNode myBinaryNode) {
+            if (myBinaryNode != null) {
+                traverseTreeData(myBinaryNode.left);
+                System.out.print(" " + myBinaryNode.data);
+                traverseTreeData(myBinaryNode.right);
+            }
+        }
+
+        public void traverseTreeKey(myBinaryNode myBinaryNode) {
+            if (myBinaryNode != null) {
+                traverseTreeKey(myBinaryNode.left);
+//            System.out.print(" " + myBinaryNode.key);
+                traverseTreeKey(myBinaryNode.right);
+            }
+
+        }
+
+
+    }
 
     //Nested class
     static class myBinaryNode<T> {
 
+        public String key;
         //Define variables for Binary Search Tree
         T data;
         myBinaryNode left;
@@ -58,8 +84,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
         inorderUtil(node.right);
     }
 
+
     public static void main(String[] args) {
         System.out.println("Welcome to Binary Search Tree");
+
         BinarySearchTree tree = new BinarySearchTree();
 
         //Adding values to BST
@@ -84,15 +112,31 @@ public class BinarySearchTree<T extends Comparable<T>> {
         int size = getSizeOfTree(root);
 
         System.out.println("\nThe size of the tree : " + size);
+        System.out.println("\nsearching for for 63");
+        System.out.println(findNode(63));
+        System.out.println("\n");
     }
 
     private static int getSizeOfTree(myBinaryNode current) {
         return current == null ? 0 : 1 + getSizeOfTree(current.left)
                 + getSizeOfTree(current.right);
 
-
     }
 
 
+    public static myBinaryNode findNode(int key) {
+        myBinaryNode node = root;
+//        while (node.key != key) {
+//            if (key < node.key) {
+//              node = node.left;
+//            } else {
+//                node = node.right;
+//            }
+        if (node == null)
+            return null;
+        return node;
+    }
 }
+
+    
 
