@@ -76,7 +76,7 @@ public class HashTableMain {
     public static void main(String[] args) {
         HashTableMain hashTable = new HashTableMain();
         System.out.println("HashTable Operation");
-        String string = "To be or not to be";
+        String string = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
         hashTableOperation(string,hashTable);
         hashTable.display();
     }
